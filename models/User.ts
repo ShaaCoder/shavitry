@@ -100,7 +100,7 @@ const UserSchema = new Schema<IUserDocument>(
     },
     password: {
       type: String,
-      required: function() { return !this.oauthProvider; },
+      required: function (this: any): boolean { return !this.oauthProvider; },
       minlength: [8, 'Password must be at least 8 characters long'],
       select: false,
     },

@@ -2,14 +2,16 @@
   "name": "nextjs",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "npm run setup-uploads && next build",
+    "build": "npm run prebuild && npm run setup-uploads && next build",
     "start": "next start",
     "lint": "next lint",
     "seed": "tsx scripts/seed-database.ts",
     "setup-uploads": "node scripts/setup-uploads.js",
-    "postinstall": "npm install --arch=x64 --platform=linux sharp && npm run setup-uploads",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
     "prebuild": "npm run type-check"
