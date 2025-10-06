@@ -33,24 +33,25 @@ const nextConfig = {
     const cspReportUri = process.env.CSP_REPORT_URI || '/api/csp-report';
     
     // Content Security Policy - Adjust based on your needs
-    const csp = [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://js.stripe.com https://checkout.razorpay.com https://www.google.com https://www.gstatic.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
-      "font-src 'self' https://fonts.gstatic.com data:",
-      "img-src 'self' data: https: blob:",
-      "media-src 'self' https:",
-      "connect-src 'self' https://api.stripe.com https://api.razorpay.com https://apiv2.shiprocket.in https://track.delhivery.com https://apigateway.bluedart.com https://blktracksvc.dtdc.com",
-      "frame-src 'self' https://js.stripe.com https://checkout.razorpay.com https://www.google.com",
-      "worker-src 'self' blob:",
-      "child-src 'self' blob:",
-      "object-src 'none'",
-      "base-uri 'self'",
-      "form-action 'self'",
-      "frame-ancestors 'none'",
-      "upgrade-insecure-requests",
-      ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])
-    ].join('; ');
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://js.stripe.com https://checkout.razorpay.com https://www.google.com https://www.gstatic.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  "img-src 'self' data: https: blob:",
+  "media-src 'self' https:",
+  "connect-src 'self' https://www.shavistore.in https://api.stripe.com https://api.razorpay.com https://apiv2.shiprocket.in https://track.delhivery.com https://apigateway.bluedart.com https://blktracksvc.dtdc.com",
+  "frame-src 'self' https://js.stripe.com https://checkout.razorpay.com https://www.google.com",
+  "worker-src 'self' blob:",
+  "child-src 'self' blob:",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "upgrade-insecure-requests",
+  ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])
+].join('; ');
+
     
     return [
       {
